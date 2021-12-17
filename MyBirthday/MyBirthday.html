@@ -57,7 +57,7 @@
         </div>
         <div class="avatar">
           <img
-            src="https://scontent.fsgn13-2.fna.fbcdn.net/v/t1.6435-1/p320x320/86372570_1050946925259593_4360046285441466368_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=0RjE39TLYfoAX_bqhyn&_nc_ht=scontent.fsgn13-2.fna&oh=00_AT97joeRYZloLIhdIpoeAAXc0DjkSiIkf8ByBhcMutgIew&oe=61DFE6E6"
+            src="https://thuthuatnhanh.com/wp-content/uploads/2019/07/hinh-anh-mau-banh-sinh-nhat-dep-nhat.jpg"
             alt=""
             class="avatar__img"
             onclick="showCountDown()"
@@ -69,12 +69,18 @@
                 name="name"
                 id="input-name"
                 style="display: block"
-                placeholder="Tên của bạn "
+                placeholder="Nhập tên đi chời ơi!! "
               />
               <input
                 type="date"
                 id="input-date"
                 style="display: block; margin-top: 5px"
+              />
+              <input
+                type="text"
+                id="input-sex"
+                style="display: block; margin-top: 5px"
+                placeholder="Giới tính lun nè chời !!"
               />
               <button
                 class="submit"
@@ -86,8 +92,18 @@
             </div>
           </h1>
         </div>
+        <!-- Noel -->
+        <!-- <audio id="player" autoplay loop>
+          <source
+            src="https://hocban.vn/wp-content/uploads/2017/12/merry_christmas.mp3"
+            type="audio/mp3"
+          />
+        </audio> -->
         <audio id="player" autoplay loop>
-          <source src="./music.mp3" type="audio/mp3" />
+          <source
+            src="https://media.nhackhongloi.me/download/mp3/dir_1/905_ms_yAfF9zLyOiM.mp3"
+            type="audio/mp3"
+          />
         </audio>
       </div>
     </div>
@@ -101,18 +117,25 @@
       }
       function showMessage() {
         var inputDate = document.getElementById("input-date").value;
+        var inputName = document.getElementById("input-name").value;
+        var inputSex = document.getElementById("input-sex").value;
+
         var currenDay = new Date().getFullYear();
         let presentDate = new Date(inputDate).getFullYear();
         let ref = document.querySelector(".form-Info");
-        var inputName = document.getElementById("input-name").value;
+
         let btn = document.querySelector(".submit");
         let me = document.querySelector(".avatar__title");
 
         swal({
           title: "Lời nhắn",
-          text: `Gửi đến tôi, chàng trai năm ${
+          text: `Gửi đến tôi, ${
+            inputSex === "Nữ" ? "Cô gái" : "chàng trai"
+          } năm ${
             currenDay - presentDate
-          } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, và cũng hãy đi tìm nàng công chúa của mình đi nào.`,
+          } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, và cũng hãy đi tìm nàng ${
+            inputSex === "Nữ" ? "Hoàng tử" : "Công chúa"
+          } của mình đi nào.`,
           button: {
             text: "️tym",
           },
