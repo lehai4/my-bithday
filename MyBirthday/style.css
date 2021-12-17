@@ -19,6 +19,10 @@ body {
 span {
   text-transform: uppercase;
 }
+input {
+  outline: none;
+  border: none;
+}
 .container {
   width: 800px;
   height: 100%;

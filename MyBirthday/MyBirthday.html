@@ -76,16 +76,15 @@
                 id="input-date"
                 style="display: block; margin-top: 5px"
               />
-              <input
-                type="text"
-                id="input-sex"
-                style="display: block; margin-top: 5px"
-                placeholder="Giới tính lun nè chời !!"
-              />
+              <select id="input-sex" style="display: block; margin-top: 5px">
+                <option value="" selected="selected">Giới tính</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+              </select>
               <button
                 class="submit"
+                style="display: block; margin-top: 5px"
                 onclick="showMessage()"
-                style="float: left; margin-top: 5px"
               >
                 Hoàn tất
               </button>
@@ -116,21 +115,21 @@
         showMessage();
       }
       function showMessage() {
-        var inputDate = document.getElementById("input-date").value;
-        var inputName = document.getElementById("input-name").value;
-        var inputSex = document.getElementById("input-sex").value;
-
-        var currenDay = new Date().getFullYear();
-        let presentDate = new Date(inputDate).getFullYear();
         let ref = document.querySelector(".form-Info");
-
         let btn = document.querySelector(".submit");
         let me = document.querySelector(".avatar__title");
 
+        var inputDate = document.getElementById("input-date").value;
+        var inputName = document.getElementById("input-name").value;
+
+        var currenDay = new Date().getFullYear();
+        let presentDate = new Date(inputDate).getFullYear();
+
+        var inputSex = document.getElementById("input-sex").value;
         swal({
           title: "Lời nhắn",
           text: `Gửi đến tôi, ${
-            inputSex === "Nữ || nữ" ? "Cô gái" : "chàng trai"
+            inputSex === "Nữ" ? "Cô gái" : "chàng trai"
           } năm ${
             currenDay - presentDate
           } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, và cũng hãy đi tìm  ${
