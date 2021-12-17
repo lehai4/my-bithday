@@ -1,0 +1,127 @@
+<html
+  lang="vi"
+  __fvdsurfcanyoninserted="1"
+  class="
+    clickberry-extension
+    clickberry-extension-standalone
+    clickberry-extension
+    clickberry-extension-standalone
+    clickberry-extension
+    clickberry-extension-standalone
+  "
+>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="image/png" href="./birthdayCake.png" />
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      window.open = function () {};
+      window.print = function () {};
+      // Support hover state for mobile.
+      if (false) {
+        window.ontouchstart = function () {};
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"
+    ></script>
+    <meta content="clickberry-extension-here" />
+  </head>
+
+  <body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Wendy+One"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+      <div class="container">
+        <div class="balloon">
+          <div><span>H</span></div>
+          <div><span>A</span></div>
+          <div><span>P</span></div>
+          <div><span>P</span></div>
+          <div><span>Y</span></div>
+          <div><span>B</span></div>
+          <div><span>I</span></div>
+          <div><span>R</span></div>
+          <div><span>T</span></div>
+          <div><span>H</span></div>
+          <div><span>D</span></div>
+          <div><span>A</span></div>
+          <div><span>Y</span></div>
+        </div>
+        <div class="avatar">
+          <img
+            src="https://scontent.fsgn13-2.fna.fbcdn.net/v/t1.6435-1/p320x320/86372570_1050946925259593_4360046285441466368_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=0RjE39TLYfoAX_bqhyn&_nc_ht=scontent.fsgn13-2.fna&oh=00_AT97joeRYZloLIhdIpoeAAXc0DjkSiIkf8ByBhcMutgIew&oe=61DFE6E6"
+            alt=""
+            class="avatar__img"
+            onclick="showCountDown()"
+          />
+          <h1 class="avatar__title">
+            <div class="form-Info">
+              <input
+                type="text"
+                name="name"
+                id="input-name"
+                style="display: block"
+                placeholder="Tên của bạn "
+              />
+              <input
+                type="date"
+                id="input-date"
+                style="display: block; margin-top: 5px"
+              />
+              <button
+                class="submit"
+                onclick="showMessage()"
+                style="float: left; margin-top: 5px"
+              >
+                Hoàn tất
+              </button>
+            </div>
+          </h1>
+        </div>
+        <audio id="player" autoplay loop>
+          <source src="./music.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+    </div>
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+
+      function showCountDown() {
+        showMessage();
+      }
+      function showMessage() {
+        var inputDate = document.getElementById("input-date").value;
+        var currenDay = new Date().getFullYear();
+        let presentDate = new Date(inputDate).getFullYear();
+        let ref = document.querySelector(".form-Info");
+        var inputName = document.getElementById("input-name").value;
+        let btn = document.querySelector(".submit");
+        let me = document.querySelector(".avatar__title");
+
+        swal({
+          title: "Lời nhắn",
+          text: `Gửi đến tôi, chàng trai năm ${
+            currenDay - presentDate
+          } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, và cũng hãy đi tìm nàng công chúa của mình đi nào.`,
+          button: {
+            text: "️tym",
+          },
+        });
+
+        me.innerHTML = inputName;
+        ref.classList.add("display");
+      }
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>
