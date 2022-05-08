@@ -1,14 +1,7 @@
 <html
   lang="vi"
   __fvdsurfcanyoninserted="1"
-  class="
-    clickberry-extension
-    clickberry-extension-standalone
-    clickberry-extension
-    clickberry-extension-standalone
-    clickberry-extension
-    clickberry-extension-standalone
-  "
+  class="clickberry-extension clickberry-extension-standalone clickberry-extension clickberry-extension-standalone clickberry-extension clickberry-extension-standalone"
 >
   <head>
     <meta charset="UTF-8" />
@@ -76,6 +69,11 @@
                 id="input-date"
                 style="display: block; margin-top: 5px"
               />
+              <select id="input-ny" style="display: block; margin-top: 5px">
+                <option value="" selected="selected">Có người yêu chưa</option>
+                <option value="Có">Có</option>
+                <option value="Chưa có">Chưa có</option>
+              </select>
               <select id="input-sex" style="display: block; margin-top: 5px">
                 <option value="" selected="selected">Giới tính</option>
                 <option value="Nam">Nam</option>
@@ -126,15 +124,21 @@
         let presentDate = new Date(inputDate).getFullYear();
 
         var inputSex = document.getElementById("input-sex").value;
+        var inputNy = document.getElementById("input-ny").value;
+
         swal({
           title: "Lời nhắn",
           text: `Gửi đến tôi, ${
             inputSex === "Nữ" ? "Cô gái" : "chàng trai"
           } năm ${
             currenDay - presentDate
-          } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, và cũng hãy đi tìm  ${
-            inputSex === "Nữ" ? "chàng Hoàng tử" : "nàng Công chúa"
-          } của mình đi nào.`,
+          } tuổi, hãy biết cố gắng thật nhiều để sau này không hối hận, hãy biết yêu thương bản thân để luôn có sức khỏe khỏe mạnh, hãy biết hiếu thuận gia đình để bố mẹ không bao giờ buồn, ${
+            inputNy === "Chưa có"
+              ? `và cũng hãy đi tìm  ${
+                  inputSex === "Nữ" ? "chàng Hoàng tử" : "nàng Công chúa"
+                } của mình đi nào.`
+              : `và sẽ có một cái kết đẹp đối với người mình yêu. Chúc mừng sinh nhật ${inputName}`
+          }`,
           button: {
             text: "️tym",
           },
